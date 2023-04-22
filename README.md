@@ -1,7 +1,14 @@
-# LLaMA 
+# LLaMA on MPS
 
 This repository is intended as a minimal, hackable and readable example to load [LLaMA](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/) ([arXiv](https://arxiv.org/abs/2302.13971v1)) models and run inference.
 In order to download the checkpoints and tokenizer, fill this [google form](https://forms.gle/jk851eBVbX1m5TAv5)
+
+## MPS adaptations
+The following changes have been done to the original code for running on an MPS backend:
+
+1. Removing all fairscale stuff.
+2. Creating a work-around for complex number multiplciation since it's not supported by MPS.
+3. Fixing a particular bug of torch on MPS where torch.triu creates a matrix with nan as lower-triangular elements instead of zeros.
 
 ## Setup
 
